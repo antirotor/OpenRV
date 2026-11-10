@@ -139,6 +139,13 @@ SET_PROPERTY(
 )
 
 #
+# Optional features
+#
+# OpenAssetIO (https://github.com/OpenAssetIO/OpenAssetIO) lets RV resolve entity references through an asset management system. When ON, the OpenAssetIO
+# C++ libraries and Python bindings are built against RV's Python and staged with RV.
+OPTION(RV_ENABLE_OPENASSETIO "Build and stage OpenAssetIO for asset management system integration." ON)
+
+#
 # Dependency resolution option
 #
 # When ON, try find_package() for each dependency before building from source. When OFF (default), always build dependencies from source (current behavior).

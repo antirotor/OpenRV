@@ -219,6 +219,51 @@ SET(RV_DEPS_OIIO_DOWNLOAD_HASH
     "4f7cb0e132117613d828439d987e187c"
 )
 
+# openassetio https://github.com/OpenAssetIO/OpenAssetIO
+SET(RV_DEPS_OPENASSETIO_VERSION
+    "1.0.2"
+)
+SET(RV_DEPS_OPENASSETIO_DOWNLOAD_HASH
+    "6db45ded88b07bb0b5e36d1046d1c9b9"
+)
+# Build-only dependencies of OpenAssetIO, statically linked (or header-only) into the OpenAssetIO libraries and never exposed to RV. Versions follow
+# OpenAssetIO's resources/build/conanfile.py.
+SET(RV_DEPS_OPENASSETIO_PYBIND11_VERSION
+    "2.9.2"
+)
+SET(RV_DEPS_OPENASSETIO_PYBIND11_DOWNLOAD_HASH
+    "06e4b6c2d0a5d6c6025941203cfcd4b6"
+)
+SET(RV_DEPS_OPENASSETIO_TOMLPLUSPLUS_VERSION
+    "3.2.0"
+)
+SET(RV_DEPS_OPENASSETIO_TOMLPLUSPLUS_DOWNLOAD_HASH
+    "31d1cd6955b74e3664403cf2bf4be231"
+)
+SET(RV_DEPS_OPENASSETIO_FMT_VERSION
+    "9.1.0"
+)
+SET(RV_DEPS_OPENASSETIO_FMT_DOWNLOAD_HASH
+    "21fac48cae8f3b4a5783ae06b443973a"
+)
+SET(RV_DEPS_OPENASSETIO_ADA_VERSION
+    "2.7.4"
+)
+SET(RV_DEPS_OPENASSETIO_ADA_DOWNLOAD_HASH
+    "97ff0215abd94c65671e936fa19ee059"
+)
+# OpenAssetIO needs PCRE2's JIT, whose sources (deps/sljit, a git submodule) are only in the release tarball, not in the tag archive used by RV_DEPS_PCRE2.
+SET(RV_DEPS_OPENASSETIO_PCRE2_VERSION
+    "10.47"
+)
+SET(RV_DEPS_OPENASSETIO_PCRE2_DOWNLOAD_HASH
+    "2261078304c4e6904d1c94c9ffd04fd8"
+)
+# openassetio-mediacreation https://github.com/OpenAssetIO/OpenAssetIO-MediaCreation Pure Python traits and specifications, installed from its wheel.
+SET(RV_DEPS_OPENASSETIO_MEDIACREATION_VERSION
+    "1.0.0a13"
+)
+
 # openjpeg https://github.com/uclouvain/openjpeg
 SET(RV_DEPS_OPENJPEG_VERSION
     "2.5.4"
