@@ -1,0 +1,37 @@
+package: OpenAssetIO
+author: Contributors to the OpenRV Project
+organization: Academy Software Foundation
+version: 1.0
+rv: 2025.1
+openrv: 4.1.0
+requires: ''
+optional: false
+
+modes:
+  - file: openassetio_mode.py
+    load: immediate
+  - file: openassetio_rv.py
+    location: Python
+
+description: |
+  <p>
+  Loads media from asset management systems through
+  <a href="https://github.com/OpenAssetIO/OpenAssetIO">OpenAssetIO</a>.
+  </p>
+  <p>
+  Set the OPENASSETIO_DEFAULT_CONFIG environment variable to the TOML
+  configuration of an OpenAssetIO manager (and OPENASSETIO_PLUGIN_PATH to
+  where its plugin is installed). RV then resolves the entity references
+  that manager recognizes, wherever a path is accepted: command line, drag
+  and drop, file browser and session files. Without a configured manager,
+  this package does nothing.
+  </p>
+  <p>
+  The entity reference of each source is saved with the session.
+  File &gt; Re-resolve Asset References resolves the references of all
+  loaded sources again, for example to pick up a newer version.
+  </p>
+  <p>
+  Image sequences are supported through templated locations using the
+  {frame} variable, with the frame range when the manager provides it.
+  </p>
