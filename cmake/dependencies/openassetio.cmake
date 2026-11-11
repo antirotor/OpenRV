@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2026  Autodesk, Inc. All Rights Reserved.
+# Copyright (C) 2026  YNPUT, s.r.o.
 #
 # SPDX-License-Identifier: Apache-2.0
 #
