@@ -7,6 +7,7 @@
 ADD_SUBDIRECTORY(FastMemcpyTest)
 ADD_SUBDIRECTORY(QFontTest)
 ADD_SUBDIRECTORY(CrashHandlerTest)
+ADD_SUBDIRECTORY(PathConformTest)
 
 # End-to-end crash-dump smoke test: launches the app, triggers the test-only crash() command and asserts a minidump is produced (plus, where minidump_dump is
 # available, the expected annotations). Enabled by default on every platform that builds the Crashpad handler. On Windows (no Breakpad/minidump_dump) it only
