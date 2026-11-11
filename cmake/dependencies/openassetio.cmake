@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2026  Autodesk, Inc. All Rights Reserved.
+# Copyright Contributors to the OpenRV Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -151,8 +151,8 @@ _RV_OPENASSETIO_ADD_PRIVATE_DEPENDENCY(
   "-DADA_BENCHMARKS=OFF"
 )
 
-# Static 8-bit PCRE2 with JIT, which OpenAssetIO requires (it JIT-compiles its URL patterns). RV's own PCRE2 (cmake/dependencies/pcre2.cmake) is a
-# Windows-only shared library without JIT; this copy is linked privately into libopenassetio.
+# Static 8-bit PCRE2 with JIT, which OpenAssetIO requires (it JIT-compiles its URL patterns). RV's own PCRE2 (cmake/dependencies/pcre2.cmake) is a Windows-only
+# shared library without JIT; this copy is linked privately into libopenassetio.
 _RV_OPENASSETIO_ADD_PRIVATE_DEPENDENCY(
   NAME
   PCRE2
@@ -264,8 +264,8 @@ EXTERNALPROJECT_ADD(
   INSTALL_COMMAND ${_cmake_install_command}
   # OpenAssetIO-MediaCreation provides the standard media traits (e.g. LocatableContentTrait). It is pure Python, so its wheel is safe to use. --no-deps stops
   # pip from fetching a second openassetio from PyPI, since this one lives outside RV's Python site-packages.
-  COMMAND "${_openassetio_python_executable}" -s -E -I -m pip install --no-deps --only-binary=:all: --no-compile --disable-pip-version-check --upgrade
-          --target "${_openassetio_python_install_dir}" "openassetio-mediacreation==${RV_DEPS_OPENASSETIO_MEDIACREATION_VERSION}"
+  COMMAND "${_openassetio_python_executable}" -s -E -I -m pip install --no-deps --only-binary=:all: --no-compile --disable-pip-version-check --upgrade --target
+          "${_openassetio_python_install_dir}" "openassetio-mediacreation==${RV_DEPS_OPENASSETIO_MEDIACREATION_VERSION}"
   BUILD_IN_SOURCE FALSE
   BUILD_ALWAYS FALSE
   BUILD_BYPRODUCTS ${_byproducts}
@@ -281,9 +281,8 @@ SET(_openassetio_target_names
     OpenAssetIO::openassetio-core OpenAssetIO::openassetio-python-bridge OpenAssetIO::openassetio-ui
 )
 FOREACH(
-  _openassetio_libname _openassetio_target_name
-  IN
-  ZIP_LISTS _openassetio_libnames _openassetio_target_names
+  _openassetio_libname
+  _openassetio_target_name IN ZIP_LISTS _openassetio_libnames _openassetio_target_names
 )
   IF(RV_TARGET_WINDOWS)
     SET(_openassetio_libpath
@@ -365,8 +364,8 @@ ADD_CUSTOM_COMMAND(
   COMMENT "Staging the OpenAssetIO Python package into ${RV_STAGE_PLUGINS_PYTHON_DIR}"
   OUTPUT ${_openassetio_stage_python_package_dir}/__init__.py ${_openassetio_python_stage_commands}
   COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${_openassetio_stage_python_package_dir}/__init__.py
-  # Depend on every installed file, not only the Python sources: cmake --install keeps the timestamps of unchanged files, so a rebuilt library alone must
-  # still trigger re-staging (on Windows the DLLs are copied next to the extension module).
+  # Depend on every installed file, not only the Python sources: cmake --install keeps the timestamps of unchanged files, so a rebuilt library alone must still
+  # trigger re-staging (on Windows the DLLs are copied next to the extension module).
   DEPENDS ${_target} ${_byproducts}
   VERBATIM
 )
