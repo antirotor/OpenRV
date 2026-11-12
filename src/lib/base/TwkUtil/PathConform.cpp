@@ -18,7 +18,14 @@ namespace TwkUtil
 
     bool pathIsURL(const std::string& path)
     {
-        RegEx regEx("^[a-z]*://");
+        //
+        //  An RFC 3986 scheme (a letter followed by letters, digits, "+",
+        //  "-" or ".") then "://". The scheme must be at least two
+        //  characters long so that a Windows drive letter followed by a
+        //  doubled slash ("C://dir") is still treated as a path.
+        //
+
+        RegEx regEx("^[A-Za-z][A-Za-z0-9+.-]+://");
         Match m(regEx, path);
         return m.foundMatch();
     }
